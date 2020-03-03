@@ -2,15 +2,18 @@
 
 int     main()
 {
-    int     d;
-    char    c;
-    char    *str;
     int     i;
+    int     d;
+    i = 234;
+    d = 11111111;
+    printf("printf: d: %d, i: %i\n", d, i);
 
-    d = 111;
+    char    c;
     c = 'z';
+    printf("printf: %c\n", c);
+
+    char    *str;
     str = "hmmm";
-    printf("printf: %d\n", c);
-    // ft_printf("ft_printf: %s\n", str);
+    printf("printf: %s and %2$dasfweaf%%bmhnty\n", str, d);
     return (0);
 }

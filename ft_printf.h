@@ -2,10 +2,12 @@
 #ifndef _FT_PRINTF_H_
 # define _FT_PRINTF_H_
 
-typedef struct  s_flags 
+# include <stdarg.h>
+
+typedef struct   s_flag 
 {
-    char *format;
-    
-}               t_flags;
+    char    *fmt;
+    int     i;
+};
 
 #endif
