@@ -3,11 +3,15 @@
 # define _FT_PRINTF_H_
 
 # include <stdarg.h>
+# include <stdio.h>//   REMOVE
+# include "libft/libft.h"
 
-typedef struct   s_flag 
+int             ft_printf(const char *format, ...);
+
+static struct   s_flag 
 {
-    char    *fmt;
-    int     i;
-};
+    void    *addr;
+    char    fmt[10];
+}               f;
 
 #endif

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "ft_printf.h"
 
 int     main()
 {
@@ -8,12 +9,12 @@ int     main()
     d = 11111111;
     printf("printf: d: %d, i: %i\n", d, i);
 
-    char    c;
-    c = 'z';
-    printf("printf: %c\n", c);
+    // char    c;
+    // c = 'z';
+    // ft_printf("ft_printf: jaba%saba\n");
 
-    char    *str;
-    str = "hmmm";
-    printf("printf: %s and %2$dasfweaf%%bmhnty\n", str, d);
-    return (0);
+    // char    *str;
+    // str = "hmmm";
+    // printf("printf: %s and %dasfweaf%%bmhnty\n", str, d);
+    // return (0);
 }
