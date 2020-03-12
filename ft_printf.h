@@ -6,12 +6,14 @@
 # include <stdio.h>//   REMOVE
 # include "libft/libft.h"
 
-int             ft_printf(const char *format, ...);
-
-static struct   s_flag 
+typedef struct   s_flag 
 {
     void    *addr;
     char    fmt[10];
-}               f;
+}               t_flag;
+
+void            ft_cs_print(struct s_flag f, char chr);
+int             ft_printf(const char *format, ...);
+
 
 #endif

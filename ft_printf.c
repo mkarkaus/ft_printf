@@ -1,5 +1,16 @@
 #include "ft_printf.h"
 
+void            ft_which_format(struct s_flag f)
+{
+    int     i;
+
+    i = 0;
+    while (f.fmt[i + 1] != '\0')
+        i++;
+    if (f.fmt[i] == 's' || f.fmt[i] == 'c')
+        ft_cs_print(f, f.fmt[i]);
+}
+
 struct s_flag   ft_format_check(const char *format, struct s_flag f)
 {
     int     i;
@@ -16,7 +27,8 @@ struct s_flag   ft_format_check(const char *format, struct s_flag f)
     }
     f.fmt[i] = format[i];
     f.fmt[i + 1] = '\0';
-    printf("%s", "func");
+    ft_which_format(f);
+    // printf("%s", (char *)f.addr);
     return (f);
 }
 

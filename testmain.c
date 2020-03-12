@@ -3,18 +3,18 @@
 
 int     main()
 {
-    int     i;
-    int     d;
-    i = 234;
-    d = 11111111;
-    printf("printf: d: %d, i: %i\n", d, i);
+    // int     i;
+    // int     d;
+    // i = 234;
+    // d = 11111111;
+    // printf("printf: d: %d, i: %i\n", d, i);
 
-    // char    c;
-    // c = 'z';
-    // ft_printf("ft_printf: jaba%saba\n");
+    char    *s = "first";
+    // char    *t = "second";
+    // ft_printf("ft_printf: %p jaba%saba\n", s, t);
 
     // char    *str;
     // str = "hmmm";
-    // printf("printf: %s and %dasfweaf%%bmhnty\n", str, d);
+    printf("ft_printf: %p and asfweafbmhnty\n", s);
     // return (0);
 }

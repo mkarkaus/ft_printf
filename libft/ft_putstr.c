@@ -20,7 +20,7 @@ void	ft_putstr(char const *str)
 	if (str)
 		while (str[i] != '\0')
 		{
-			ft_putchar(str[i]);
+			write(1, str[i], 1);
 			i++;
 		}
 }
