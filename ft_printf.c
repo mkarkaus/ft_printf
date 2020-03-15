@@ -7,7 +7,7 @@ void            ft_which_format(struct s_flag f)
     i = 0;
     while (f.fmt[i + 1] != '\0')
         i++;
-    if (f.fmt[i] == 's' || f.fmt[i] == 'c')
+    if (f.fmt[i] == 's' || f.fmt[i] == 'c' || f.fmt[i] == 'p')
         ft_cs_print(f, f.fmt[i]);
 }
 
@@ -20,7 +20,7 @@ struct s_flag   ft_format_check(const char *format, struct s_flag f)
     while (format[i] != 's' && format[i] != 'd' && format[i] != 'i' && \
             format[i] != 'o' && format[i] != 'u' && \
             format[i] != 'x' && format[i] != 'X' && \
-            format[i] != 'c')
+            format[i] != 'c' && format[i] != 'p')
     {
         f.fmt[i] = format[i];
         i++;

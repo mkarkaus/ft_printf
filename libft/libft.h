@@ -89,5 +89,6 @@ int				ft_isspace(int c);
 int				ft_isupper(int c);
 int				ft_islower(int c);
 int				ft_intlen(int n);
+int				ft_ldoublelen(long double n);
 
 #endif

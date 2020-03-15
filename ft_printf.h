@@ -14,6 +14,6 @@ typedef struct   s_flag
 
 void            ft_cs_print(struct s_flag f, char chr);
 int             ft_printf(const char *format, ...);
-
+void            ft_write_hex(long num, int upper);
 
 #endif

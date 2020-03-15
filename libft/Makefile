@@ -23,7 +23,7 @@ ft_strdup.c ft_strlen.c ft_strnequ.c ft_strtrim.c ft_bzero.c ft_itoa.c \
 ft_memdel.c ft_putendl_fd.c ft_strchr.c ft_strequ.c ft_strmap.c ft_strnew.c \
 ft_strlcat.c ft_strnstr.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 ft_lstiter.c ft_lstmap.c ft_intlen.c ft_isupper.c ft_islower.c ft_swap.c \
-ft_isspace.c get_next_line.c
+ft_isspace.c ft_ldoublelen.c get_next_line.c
 
 FLAGS = -Wall -Werror -Wextra
 
