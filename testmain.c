@@ -3,8 +3,8 @@
 
 int     main()
 {
-    // int     i;
-    // int     d;
+    int     i;
+    int     d;
     // i = 234;
     // d = 11111111;
     // printf("printf: d: %d, i: %i\n", d, i);
@@ -16,7 +16,13 @@ int     main()
 
     // char    *str;
     // str = "hmmm";
-    ft_printf("ft_printf: %p and asfweafbmhnty\n", s);
-    // printf("   printf: %p and asfweafbmhnty\n", s);
+    // d = ft_printf("ft_printf: %p and %c\n", s, 'f');
+    // printf("--%d--\n", d);
+    // i = printf("   printf: %p and %c\n", s, 'f');
+    // printf("--%d--\n", i);
+    d = ft_printf("");
+    printf("--%s--\n", d);
+    i = printf("");
+    printf("--%s--\n", i);
     // return (0);
 }

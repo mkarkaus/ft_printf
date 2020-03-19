@@ -34,7 +34,7 @@ size_t			ft_strlcat(char *dest, const char *src, size_t len);
 size_t			ft_strlen(const char *s);
 void			ft_putchar(char c);
 void			ft_putnbr(int n);
-void			ft_putstr(char const *s);
+int				ft_putstr(char const *s);
 void			*ft_memcpy(void *dest, const void *src, size_t n);
 void			*ft_memalloc(size_t size);
 void			*ft_memccpy(void *dest, const void *src, int c, size_t n);
@@ -89,6 +89,6 @@ int				ft_isspace(int c);
 int				ft_isupper(int c);
 int				ft_islower(int c);
 int				ft_intlen(int n);
-int				ft_ldoublelen(long double n);
+int				ft_longlen(long n);
 
 #endif

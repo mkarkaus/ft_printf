@@ -1,6 +1,6 @@
 #include "libft.h"
 
-int		ft_ldoublelen(long double n)
+int		ft_longlen(long n)
 {
 	int	len;
 

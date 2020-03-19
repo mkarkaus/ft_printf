@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_putstr(char const *str)
+int		ft_putstr(char const *str)
 {
 	int i;
 
@@ -23,4 +23,5 @@ void	ft_putstr(char const *str)
 			write(1, &str[i], 1);
 			i++;
 		}
+	return (i);
 }
