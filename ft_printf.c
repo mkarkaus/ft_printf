@@ -5,10 +5,13 @@ void    ft_which_format(struct s_flag *f)
     int     i;
     i = 0;
 
-    while ((*f).fmt[i + 1] != '\0')
+    while (f->fmt[i + 1] != '\0')
         i++;
-    if ((*f).fmt[i] == 's' || (*f).fmt[i] == 'c' || (*f).fmt[i] == 'p')
-        ft_cs_print(f, (*f).fmt[i]);
+    if (f->fmt[i] == 's' || f->fmt[i] == 'c' || f->fmt[i] == 'p')
+        ft_cs_print(f, f->fmt[i]);
+    else if (f->fmt[i] == 'd' || f->fmt[i] == 'i' || f->fmt[i] == 'o' || \
+                f->fmt[i] == 'u' || f->fmt[i] == 'x' || f->fmt[i] == 'X')
+        ft_int_conv(f, f->fmt[i]);
 }
 
 void    ft_format_check(const char *format, struct s_flag *f)
@@ -17,17 +20,17 @@ void    ft_format_check(const char *format, struct s_flag *f)
 
     i = 0;
     // printf("--%ld--", sizeof(f.addr));
-    ft_strclr((*f).fmt);
+    ft_strclr(f->fmt);
     while (format[i] != 's' && format[i] != 'd' && format[i] != 'i' && \
             format[i] != 'o' && format[i] != 'u' && \
             format[i] != 'x' && format[i] != 'X' && \
             format[i] != 'c' && format[i] != 'p')
     {
-        (*f).fmt[i] = format[i];
+        f->fmt[i] = format[i];
         i++;
     }
-    (*f).fmt[i] = format[i];
-    (*f).fmt[i + 1] = '\0';
+    f->fmt[i] = format[i];
+    f->fmt[i + 1] = '\0';
     ft_which_format(f);
     // printf("--%s--", arg);
 }
@@ -51,7 +54,7 @@ int     ft_printf(const char *format, ...)
             ft_format_check(format + 1, f);
             format = format + ft_strlen(flag.fmt) + 1;
         }
-        flag.printed = flag.printed + write(1, &(*format), 1);
+        flag.printed += write(1, &(*format), 1);
         format++;
     }
     va_end(ap);

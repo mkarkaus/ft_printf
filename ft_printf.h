@@ -16,5 +16,6 @@ typedef struct   s_flag
 void            ft_cs_print(struct s_flag *f, char chr);
 int             ft_printf(const char *format, ...);
 void            ft_write_hex(struct s_flag *f, long num, int upper);
+void            ft_int_conv(struct s_flag *f, char chr);
 
 #endif
