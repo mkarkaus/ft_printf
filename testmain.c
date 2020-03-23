@@ -5,15 +5,15 @@ int     main()
 {
     int     i;
     int     d;
-    int     n;
+    long     n;
 
-    n = 45322553;
+    n = 888888888888888;
     // i = 234;
     // d = 11111111;
     // printf("printf: d: %d, i: %i\n", d, i);
 
     // char    c = 'p';
-    // char    *s = "first and second";
+    char    *s = "first and second";
     // char    *t = "second";
     // ft_printf("ft_printf: %p jaba%saba\n", s, t);
 
@@ -23,9 +23,10 @@ int     main()
     // printf("--%d--\n", d);
     // i = printf("   printf: %p and %c\n", s, 'f');
     // printf("--%d--\n", i);
-    d = ft_printf("%X\n", n);
+    d = ft_printf("%owo\n", n);
     printf("--%d--\n", d);
-    i = printf("%X\n", n);;
+
+    i = printf("%#owo\n", n);
     printf("--%d--\n", i);
     // return (0);
 }

@@ -1,5 +1,29 @@
 #include "ft_printf.h"
 
+void    struct_clear(struct s_flag *f)
+{
+    ft_strclr(f->fmt);
+    f->l = 0;
+    f->ll = 0;
+    f->h = 0;
+    f->hh = 0;
+    f->plus = 0;
+    f->minus = 0;
+    f->space = 0;
+    f->zero = 0;
+}
+
+int     valid_format(char c)
+{
+    if (c == 's' || c == 'd' || c == 'i' || c == 'o' || c == 'u' || c == 'x' \
+        || c == 'X' || c == 'c' || c == 'p' || c == 'f')
+        return (1);
+    else if (c == 'l' || c == 'h' || c == '.' || c == '*' || c == '#' \
+        || c == '-' || c == '+' || c == ' ' || (c >= '0' && c <= '9'))
+        return (2);
+    return (0);
+}
+
 void    ft_which_format(struct s_flag *f)
 {
     int     i;
@@ -19,20 +43,20 @@ void    ft_format_check(const char *format, struct s_flag *f)
     int     i;
 
     i = 0;
-    // printf("--%ld--", sizeof(f.addr));
-    ft_strclr(f->fmt);
-    while (format[i] != 's' && format[i] != 'd' && format[i] != 'i' && \
-            format[i] != 'o' && format[i] != 'u' && \
-            format[i] != 'x' && format[i] != 'X' && \
-            format[i] != 'c' && format[i] != 'p')
+    struct_clear(f);
+    while (valid_format(format[i]) && valid_format(format[i]) != 1)
     {
         f->fmt[i] = format[i];
         i++;
     }
-    f->fmt[i] = format[i];
-    f->fmt[i + 1] = '\0';
-    ft_which_format(f);
-    // printf("--%s--", arg);
+    if (valid_format(format[i]))
+    {
+        f->fmt[i] = format[i];
+        f->fmt[i + 1] = '\0';
+        ft_which_format(f);
+    }
+    else
+        write(1, "%", 1);
 }
 
 int     ft_printf(const char *format, ...)
@@ -52,7 +76,7 @@ int     ft_printf(const char *format, ...)
         {
             flag.addr = va_arg(ap, void *);
             ft_format_check(format + 1, f);
-            format = format + ft_strlen(flag.fmt) + 1;
+            format += ft_strlen(flag.fmt) + 1;
         }
         flag.printed += write(1, &(*format), 1);
         format++;
@@ -60,11 +84,3 @@ int     ft_printf(const char *format, ...)
     va_end(ap);
     return (flag.printed);
 }
-
-/* 
-
-             flag -d___
-            /          \
-ft_printf__/___flag -s__(?precision)
-            \__flag -i_/
-*/

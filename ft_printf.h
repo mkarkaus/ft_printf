@@ -11,6 +11,14 @@ typedef struct   s_flag
     void    *addr;
     char    fmt[10];
     int     printed;
+    int     l;    
+    int     ll;
+    int     h;
+    int     hh;
+    int     plus;
+    int     minus;
+    int     space;
+    int     zero;
 }               t_flag;
 
 void            ft_cs_print(struct s_flag *f, char chr);
