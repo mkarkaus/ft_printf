@@ -1,34 +1,11 @@
+
 #include "ft_printf.h"
-
-void    struct_clear(struct s_flag *f)
-{
-    ft_strclr(f->fmt);
-    f->l = 0;
-    f->ll = 0;
-    f->h = 0;
-    f->hh = 0;
-    f->plus = 0;
-    f->minus = 0;
-    f->space = 0;
-    f->zero = 0;
-}
-
-int     valid_format(char c)
-{
-    if (c == 's' || c == 'd' || c == 'i' || c == 'o' || c == 'u' || c == 'x' \
-        || c == 'X' || c == 'c' || c == 'p' || c == 'f')
-        return (1);
-    else if (c == 'l' || c == 'h' || c == '.' || c == '*' || c == '#' \
-        || c == '-' || c == '+' || c == ' ' || (c >= '0' && c <= '9'))
-        return (2);
-    return (0);
-}
 
 void    ft_which_format(struct s_flag *f)
 {
     int     i;
+   
     i = 0;
-
     while (f->fmt[i + 1] != '\0')
         i++;
     if (f->fmt[i] == 's' || f->fmt[i] == 'c' || f->fmt[i] == 'p')
@@ -38,7 +15,7 @@ void    ft_which_format(struct s_flag *f)
         ft_int_conv(f, f->fmt[i]);
 }
 
-void    ft_format_check(const char *format, struct s_flag *f)
+int     ft_format_check(const char *format, struct s_flag *f)
 {
     int     i;
 
@@ -53,10 +30,26 @@ void    ft_format_check(const char *format, struct s_flag *f)
     {
         f->fmt[i] = format[i];
         f->fmt[i + 1] = '\0';
+        flags_fill(f, 0);
+        printf("l:  %d\n", f->l);    
+        printf("ll: %d\n", f->ll);
+        printf("h:  %d\n", f->h);
+        printf("hh: %d\n", f->hh);
+        printf("hash: %d\n", f->hash);
+        printf("plus: %d\n", f->plus);
+        printf("minus: %d\n", f->minus);
+        printf("space: %d\n", f->space);
+        printf("zero: %d\n", f->zero);
+        printf("pres: %d\n", f->pres);
+        printf("width: %d\n", f->width);
         ft_which_format(f);
     }
     else
-        write(1, "%", 1);
+    {
+        f->printed += write(1, "%", 1);
+        return (-1);
+    }
+    return (0);
 }
 
 int     ft_printf(const char *format, ...)
@@ -75,8 +68,10 @@ int     ft_printf(const char *format, ...)
         else if (*format == '%' && *(format + 1) != '%')
         {
             flag.addr = va_arg(ap, void *);
-            ft_format_check(format + 1, f);
-            format += ft_strlen(flag.fmt) + 1;
+            if (ft_format_check(format + 1, f) == 0)
+                format += ft_strlen(flag.fmt) + 1;
+            else
+                format += 2;
         }
         flag.printed += write(1, &(*format), 1);
         format++;

@@ -90,5 +90,8 @@ int				ft_isupper(int c);
 int				ft_islower(int c);
 int				ft_intlen(int n);
 int				ft_longlen(long n);
+char			*ft_itoa_long(long n);
+int				ft_intlen_long(long n);
+char			*ft_itoa_ptr(int *n);
 
 #endif
