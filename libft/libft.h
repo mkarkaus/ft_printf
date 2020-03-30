@@ -93,5 +93,6 @@ int				ft_longlen(long n);
 char			*ft_itoa_long(long n);
 int				ft_intlen_long(long n);
 char			*ft_itoa_ptr(int *n);
+char    		*ft_strrev(char *str);
 
 #endif

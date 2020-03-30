@@ -1,32 +1,27 @@
 
 #include "ft_printf.h"
 
-void    *flags_to_use(struct s_flag *f)
+void    flags_to_use(struct s_flag *f)
 {
     if (f->l != 0)
     {
         f->res = ft_memalloc(ft_intlen((long)f->addr + 2));
-        return ((long *)f->addr);
     }
     else if (f->ll != 0)
     {
         f->res = ft_memalloc(ft_intlen((long long)f->addr + 2));
-        return ((long long *)f->addr);
     }
     else if (f->h != 0)
     {
         f->res = ft_memalloc(ft_intlen((long)f->addr + 2));
-        return ((short *)f->addr);
     }
     else if (f->hh != 0)
     {
         f->res = ft_memalloc(3);
-        return ((char *)f->addr);
     }
     else
     {
         f->res = ft_memalloc(ft_intlen_long((long)f->addr + 2));
-        return (f->addr);
     }
 }
 
@@ -40,10 +35,22 @@ void    ft_int_conv(struct s_flag *f, char chr)
             f->res = ft_itoa((long)f->addr);
     }
     else if (chr == 'o')
-        ft_conv_oct(f, (long)f->addr, 0);
+    {
+        flags_to_use(f);
+        // if (f->l == 1 || f->ll == 1)
+            ft_long_oct(f, 0);
+        // else
+        //     ft_int_oct(f, (long)f->addr, 0);
+        f->res = ft_strrev(f->res);
+    }
     else if (chr == 'x' || chr == 'X')
+    {
+        flags_to_use(f);
         ft_conv_hex(f, (long)f->addr, 0, chr == 'X');
-    f->printed += ft_putstr(f->res);                                  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        f->res = ft_strrev(f->res);
+    }
+    f->printed += ft_putstr(f->res);
+    free(f->res);                                  // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 }
 
 void    ft_cs_print(struct s_flag *f, char chr)

@@ -5,9 +5,9 @@ int     main()
 {
     int     i;
     int     d;
-    long long    n;
+    long    n;
 
-    n = -678678999999;
+    n = 12312312312323;
     // i = 234;
     // d = 11111111;
     // printf("printf: d: %d, i: %i\n", d, i);
@@ -23,10 +23,10 @@ int     main()
     // printf("--%d--\n", d);
     // i = printf("   printf: %p and %c\n", s, 'f');
     // printf("--%d--\n", i);
-    d = ft_printf("%d wo\n", n);
+    d = ft_printf("%llo wo\n", n);
     printf("--%d--\n", d);
 
-    i = printf("%d wo\n", n);
+    i = printf("%llo wo\n", n);
     printf("--%d--\n", i);
     // return (0);
 }

@@ -33,6 +33,7 @@ void            ft_cs_print(struct s_flag *f, char chr);
 int             ft_printf(const char *format, ...);
 void            ft_conv_hex(struct s_flag *f, long num, int i, int upper);
 void            ft_int_conv(struct s_flag *f, char chr);
-void            ft_conv_oct(struct s_flag *f, long num, int i);
+void            ft_long_oct(struct s_flag *f, int i);
+void            ft_int_oct(struct s_flag *f, unsigned int num, int i);
 
 #endif

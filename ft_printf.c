@@ -31,17 +31,17 @@ int     ft_format_check(const char *format, struct s_flag *f)
         f->fmt[i] = format[i];
         f->fmt[i + 1] = '\0';
         flags_fill(f, 0);
-        printf("l:  %d\n", f->l);    
-        printf("ll: %d\n", f->ll);
-        printf("h:  %d\n", f->h);
-        printf("hh: %d\n", f->hh);
-        printf("hash: %d\n", f->hash);
-        printf("plus: %d\n", f->plus);
-        printf("minus: %d\n", f->minus);
-        printf("space: %d\n", f->space);
-        printf("zero: %d\n", f->zero);
-        printf("pres: %d\n", f->pres);
-        printf("width: %d\n", f->width);
+        // printf("l:  %d\n", f->l);    
+        // printf("ll: %d\n", f->ll);
+        // printf("h:  %d\n", f->h);
+        // printf("hh: %d\n", f->hh);
+        // printf("hash: %d\n", f->hash);
+        // printf("plus: %d\n", f->plus);
+        // printf("minus: %d\n", f->minus);
+        // printf("space: %d\n", f->space);
+        // printf("zero: %d\n", f->zero);
+        // printf("pres: %d\n", f->pres);
+        // printf("width: %d\n", f->width);
         ft_which_format(f);
     }
     else
