@@ -5,9 +5,10 @@ int     main()
 {
     int     i;
     int     d;
-    long    n;
+    // long double   n;
+	float	l;
 
-    n = 12312312312323;
+    l = -2999.9349f;
     // i = 234;
     // d = 11111111;
     // printf("printf: d: %d, i: %i\n", d, i);
@@ -23,10 +24,12 @@ int     main()
     // printf("--%d--\n", d);
     // i = printf("   printf: %p and %c\n", s, 'f');
     // printf("--%d--\n", i);
-    d = ft_printf("%llo wo\n", n);
+    d = ft_printf("%.0f yo \n", l);
     printf("--%d--\n", d);
 
-    i = printf("%llo wo\n", n);
+	// n = (long double)l;
+	// l = (float)n;
+    i = printf("%.0f yo \n", l);
     printf("--%d--\n", i);
     // return (0);
 }
