@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 11:47:14 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/04/29 16:10:46 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/04/30 12:58:13 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	ft_find_tens(long nb, int *tens, int *size)
 	}
 }
 
-void	ft_double_conv(struct s_flag *f, va_list ap, char chr)
+void	ft_double_conv(struct s_flag *f, va_list ap) //, char chr)
 {
 	int			tens;
 	int			size;

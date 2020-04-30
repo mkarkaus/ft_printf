@@ -6,7 +6,7 @@
 #    By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/30 11:50:18 by mkarkaus          #+#    #+#              #
-#    Updated: 2019/11/13 11:41:35 by mkarkaus         ###   ########.fr        #
+#    Updated: 2020/04/30 14:49:43 by mkarkaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,13 +35,16 @@ OBJ = $(patsubst %.c, %.o, $(SRC))
 all: $(NAME)
 
 $(NAME):
-	gcc -c $(FLAGS) $(SRC)
-	ar rc $(NAME) $(OBJ)
+	@gcc -c $(FLAGS) $(SRC)
+	@ar rc $(NAME) $(OBJ)
+	@echo "Archive file '$(NAME)' and object files for it CREATED."
 
 clean:
-	/bin/rm -f $(OBJ)
+	@/bin/rm -f $(OBJ)
+	@echo "Object files for '$(NAME)' REMOVED."
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
+	@echo "Archive file '$(NAME)' REMOVED."
 
 re: fclean all

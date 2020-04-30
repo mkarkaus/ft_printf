@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 17:38:36 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/04/28 12:50:34 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/04/30 12:08:00 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int		ft_printf(const char *format, ...);
 void	uitoabase(struct s_flag *f, uintmax_t num, int i, unsigned int base);
 void	ft_csp_conv(struct s_flag *f, va_list ap, char chr);
 void	ft_int_conv(struct s_flag *f, va_list ap, char chr);
-void	ft_double_conv(struct s_flag *f, va_list ap, char chr);
+void	ft_double_conv(struct s_flag *f, va_list ap); //, char chr);
 void	ft_flag_type(struct s_flag *f, char chr);
 void	ft_flags_chars(struct s_flag *f, char chr);
 void	print_memory(const void *addr, size_t size);
