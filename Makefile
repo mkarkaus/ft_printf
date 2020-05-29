@@ -6,7 +6,7 @@
 #    By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 11:11:01 by mkarkaus          #+#    #+#              #
-#    Updated: 2020/04/30 14:56:00 by mkarkaus         ###   ########.fr        #
+#    Updated: 2020/05/05 11:13:59 by mkarkaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,3 +47,11 @@ fclean: clean
 	@echo "Archive file '$(NAME)' REMOVED."
 
 re: fclean all
+
+exe:
+	@gcc main.c $(NAME)
+	@echo "Executable CREATED without flags"
+
+exef:
+	@gcc $(FLAGS) main.c $(NAME)
+	@echo "Executable CREATED with flags"

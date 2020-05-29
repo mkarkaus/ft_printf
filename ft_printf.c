@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 11:47:20 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/04/30 12:08:30 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/05/28 14:31:37 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_which_format(struct s_flag *f, va_list ap)
 				f->fmt[i] == 'u' || f->fmt[i] == 'x' || f->fmt[i] == 'X')
 		ft_int_conv(f, ap, f->fmt[i]);
 	else if (f->fmt[i] == 'f' || f->fmt[i] == 'g' || f->fmt[i] == 'e')
-		ft_double_conv(f, ap); //, f->fmt[i]);
+		ft_double_conv(f, ap, 0); //, f->fmt[i]);
 	ft_flags_chars(f, f->fmt[i]);
 	f->printed += ft_putstr(f->res);
 }

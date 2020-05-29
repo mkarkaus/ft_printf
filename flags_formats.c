@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 11:47:08 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/04/28 16:14:55 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/05/28 19:18:04 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,14 @@
 
 void	ft_flags_chars(struct s_flag *f, char chr)
 {
-	char	*temp;
-
-	temp = f->res;
 	if (f->space && !f->plus && (chr == 'd' || chr == 'i'))
-	{
 		f->res = ft_strjoin(" ", f->res);
-		free(temp);
-	}
 	if (f->plus && (chr == 'd' || chr == 'i' || chr == 'f') && *f->res != '-')
-	{
 		f->res = ft_strjoin("+", f->res);
-		free(temp);
-	}
 	if (f->hash && (chr == 'o' || chr == 'x' || chr == 'X' || chr == 'f'))
 		f->res = ft_hash(f, chr);
+	if (f->width && f->width > (int)ft_strlen(f->res))
+		ft_width(f);
 	if (f->zero && !f->minus)
 		ft_zero(f);
 	if (f->minus)
@@ -94,10 +87,10 @@ void	flags_fill(struct s_flag *f, int i)
 			f->minus = 1;
 		else if (f->fmt[i] == ' ')
 			f->space = 1;
-		else if (f->fmt[i] == '.')
+		else if (f->fmt[i] == '.' && (f->pres = ft_atoi(f->fmt + i + 1)))
 		{
-			f->pres = ft_atoi(f->fmt + i + 1);
-			i += ft_intlen(f->pres);
+			if (f->pres)
+				i += ft_intlen(f->pres);
 		}
 		else if (f->fmt[i] >= '1' && f->fmt[i] <= '9')
 		{

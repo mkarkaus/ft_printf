@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 11:46:42 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/04/28 11:05:59 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/05/28 14:31:54 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	ft_shift_memcpy(struct s_flag *f, int bytes, int negative, char chr)
 		i--;
 		j -= 8;
 	}
-	print_memory(str, 16);
 	while (0 < bytes && negative == 1 && (chr == 'd' || chr == 'i'))
 	{
 		str[bytes - 1] = ~(str[bytes - 1]);
@@ -36,7 +35,6 @@ void	ft_shift_memcpy(struct s_flag *f, int bytes, int negative, char chr)
 	f->num = (void *)str;
 	if (negative == 1 && (chr == 'd' || chr == 'i'))
 		*f->num = (*f->num + 1) * -1;
-	print_memory(str, 16);
 }
 
 void	ft_flag_type(struct s_flag *f, char chr)

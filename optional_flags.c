@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 15:25:19 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/04/22 15:53:23 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/05/28 19:28:38 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,33 @@ char	*ft_hash(struct s_flag *f, char chr)
 	return (str);
 }
 
+void	ft_width(struct s_flag *f)
+{
+	char	*spaces;
+	int		num;
+
+	num = f->width - ft_strlen(f->res);
+	spaces = ft_memalloc(num + 1);
+	spaces[num] = '\0';
+	num -= 1;
+	while (num >= 0)
+	{
+		spaces[num] = ' ';
+		num--;
+	}
+	f->res = ft_strjoin(spaces, f->res);
+	free(spaces);
+}
+
 void	ft_zero(struct s_flag *f)
 {
 	int		i;
 
 	i = f->space;
-	while (f->res[i] == ' ')
+	while (f->res[i] == ' ' || f->res[i] == '-' || f->res[i] == '+')
 	{
+		if (f->res[i] != ' ')
+			f->res[0] = f->res[i];
 		f->res[i] = '0';
 		i++;
 	}
