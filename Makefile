@@ -6,7 +6,7 @@
 #    By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 11:11:01 by mkarkaus          #+#    #+#              #
-#    Updated: 2020/05/05 11:13:59 by mkarkaus         ###   ########.fr        #
+#    Updated: 2020/05/29 18:17:31 by mkarkaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ write_funcs.c
 LIB_SRCS_PATH = ./libft/
 LIB_SRCS_FILES = ft_putstr.c ft_strlen.c ft_strjoin.c ft_strclr.c ft_atoi.c \
 ft_intlen.c ft_itoa_long.c ft_memalloc.c ft_strrev.c ft_strcpy.c ft_strcmp.c \
-ft_strncpy.c ft_itoa.c ft_intlen_long.c ft_bzero.c ft_strdup.c
+ft_strncpy.c ft_itoa.c ft_intlen_long.c ft_bzero.c ft_strdup.c ft_isdigit.c
 
 LIB_SRCS = $(addprefix $(LIB_SRCS_PATH), $(LIB_SRCS_FILES))
 

@@ -14,7 +14,7 @@ int     main()
     // printf("printf: d: %d, i: %i\n", d, i);
 
     // char    c = 'p';
-    char    *s = "%Lf yo \n";
+    char    *s = "%.0Lf yo \n";
     // char    *t = "second";
     // ft_printf("ft_printf: %p jaba%saba\n", s, t);
 
