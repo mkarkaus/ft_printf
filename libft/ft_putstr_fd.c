@@ -6,18 +6,18 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 09:39:32 by mkarkaus          #+#    #+#             */
-/*   Updated: 2019/11/07 13:23:01 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/06/25 20:53:15 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char const *s, int fd)
+int		ft_putstr_fd(char const *s, int fd)
 {
+	int		ret;
+
+	ret = ft_strlen(s);
 	if (s)
-		while (*s)
-		{
-			ft_putchar_fd(*s, fd);
-			s++;
-		}
+		write(fd, s, ret);
+	return (ret);
 }

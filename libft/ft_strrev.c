@@ -1,7 +1,7 @@
 #include "libft.h"
 #include <stdlib.h>
 
-char    *ft_strrev(char *str)
+char    *ft_strrev(char *str, int free_str)
 {
     int     i;
     int     j;
@@ -18,5 +18,7 @@ char    *ft_strrev(char *str)
         j++;
     }
     res[j] = '\0';
+    if (free_str)
+        free(str);
     return (res);
 }

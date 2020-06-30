@@ -6,54 +6,90 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 15:25:19 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/05/28 19:28:38 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/06/30 20:35:33 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_double_hash(struct s_flag *f, char *str)
+void	pres_flag(t_flag *f, char chr)
 {
 	int		i;
+	int		minus;
+
+	minus = (f->res[0] == '-');
+	if (minus)
+		f->res[0] = '0';
+	i = f->pres - ft_strlen(f->res);
+	if (chr == 's' && ft_strlen(f->res) >= f->pres)
+		ft_strclr(f->res + f->pres);
+	else if (chr != 's')
+	{
+		while (i > 0)
+		{
+			f->res = ft_strjoin("0", f->res, 2);
+			i--;
+		}
+		if (minus)
+			f->res = ft_strjoin("-", f->res, 2);
+	}
+}
+
+char	*double_hash(t_flag *f, char *str)
+{
+	int		i;
+	char	*exp;
 
 	i = 0;
-	while (f->res[i] != '.' && f->res[i] != '\0')
+	while (f->res[i] != '.' && f->res[i] != '\0' && f->res[i] != 'e')
+	{
+		str[i] = f->res[i];
 		i++;
-	str = ft_strcpy(str, f->res);
-	if (f->res[i] != '.')
+	}
+	exp = ft_memalloc(ft_strlen(f->res + i) + 2);
+	ft_strncpy(exp, f->res + i, ft_strlen(f->res + i));
+	if (!f->res[i])
 	{
 		str[i] = '.';
 		str[i + 1] = '\0';
 	}
+	else if (f->res[i] == 'e' || f->res[i] == '.')
+	{
+		if (f->res[i] == 'e')
+			str[i++] = '.';
+		ft_strncpy(str + i, exp, ft_strlen(exp));
+	}
+	free(exp);
 	return (str);
 }
 
-char	*ft_hash(struct s_flag *f, char chr)
+char	*hash_flag(t_flag *f, char chr)
 {
 	char	*str;
 
 	str = (char *)malloc((ft_strlen(f->res) + 3) * sizeof(char));
-	if (chr == 'o' && f->res[0] != '0')
+	if (chr == 'o')
 	{
 		str[0] = '0';
 		ft_strcpy(str + 1, f->res);
 	}
 	else if ((chr == 'x' || chr == 'X') && ft_strcmp(f->res, "0"))
 	{
-		str[0] = '0';
 		if (chr == 'x')
-			str[1] = 'x';
-		else
-			str[1] = 'X';
-		ft_strcpy(str + 2, f->res);
+			f->res = ft_strjoin("x", f->res, 2);
+		if (chr == 'X')
+			f->res = ft_strjoin("X", f->res, 2);
+		f->res = ft_strjoin("0", f->res, 2);
 	}
-	else if (chr == 'f')
-		str = ft_double_hash(f, str);
+	if (chr == 'f' || chr == 'e' || chr == 'g')
+		str = double_hash(f, str);
+	else
+		ft_strcpy(str, f->res);
 	free(f->res);
 	return (str);
 }
 
-void	ft_width(struct s_flag *f)
+void	width_flag(t_flag *f)
 {
 	char	*spaces;
 	int		num;
@@ -67,11 +103,10 @@ void	ft_width(struct s_flag *f)
 		spaces[num] = ' ';
 		num--;
 	}
-	f->res = ft_strjoin(spaces, f->res);
-	free(spaces);
+	f->res = ft_strjoin(spaces, f->res, 3);
 }
 
-void	ft_zero(struct s_flag *f)
+void	zero_flag(t_flag *f)
 {
 	int		i;
 
@@ -79,13 +114,18 @@ void	ft_zero(struct s_flag *f)
 	while (f->res[i] == ' ' || f->res[i] == '-' || f->res[i] == '+')
 	{
 		if (f->res[i] != ' ')
+		{
 			f->res[0] = f->res[i];
-		f->res[i] = '0';
+			if (i != 0)
+				f->res[i] = '0';
+		}
+		else
+			f->res[i] = '0';
 		i++;
 	}
 }
 
-char	*ft_minus(struct s_flag *f)
+char	*minus_flag(t_flag *f)
 {
 	char	*str;
 	int		spaces;

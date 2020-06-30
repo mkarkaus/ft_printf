@@ -6,7 +6,7 @@
 #    By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/30 11:11:01 by mkarkaus          #+#    #+#              #
-#    Updated: 2020/05/29 18:17:31 by mkarkaus         ###   ########.fr        #
+#    Updated: 2020/06/25 22:20:09 by mkarkaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,19 +14,17 @@
 
 NAME = libftprintf.a
 
-SRCS = flags_formats.c ft_flags.c ft_printf.c optional_flags.c print_memory.c \
-write_funcs.c
+SRCS = flags_formats.c flags.c ft_printf.c optional_flags.c write_funcs.c
 
 LIB_SRCS_PATH = ./libft/
-LIB_SRCS_FILES = ft_putstr.c ft_strlen.c ft_strjoin.c ft_strclr.c ft_atoi.c \
+LIB_SRCS_FILES = ft_putstr_fd.c ft_strlen.c ft_strjoin.c ft_strclr.c ft_atoi.c \
 ft_intlen.c ft_itoa_long.c ft_memalloc.c ft_strrev.c ft_strcpy.c ft_strcmp.c \
-ft_strncpy.c ft_itoa.c ft_intlen_long.c ft_bzero.c ft_strdup.c ft_isdigit.c
+ft_strncpy.c ft_itoa.c ft_intlen_long.c ft_bzero.c ft_strdup.c ft_isdigit.c \
+ft_strncmp.c ft_memset.c
 
 LIB_SRCS = $(addprefix $(LIB_SRCS_PATH), $(LIB_SRCS_FILES))
 
 FLAGS = -Wall -Werror -Wextra
-
-HEAD = ft_printf.h
 
 OBJ = $(patsubst %.c, %.o, $(SRCS) $(LIB_SRCS_FILES))
 
@@ -49,9 +47,9 @@ fclean: clean
 re: fclean all
 
 exe:
-	@gcc main.c $(NAME)
-	@echo "Executable CREATED without flags"
+	@gcc $(LIB_SRCS) $(SRCS) main.c
+	@echo "Executable CREATED with flags"
 
 exef:
-	@gcc $(FLAGS) main.c $(NAME)
+	@gcc $(FLAGS) $(LIB_SRCS) $(SRCS) main.c
 	@echo "Executable CREATED with flags"

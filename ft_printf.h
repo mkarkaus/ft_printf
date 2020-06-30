@@ -6,12 +6,12 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 17:38:36 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/05/28 19:17:26 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/06/30 17:13:31 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FT_PRINTF_H_
-# define _FT_PRINTF_H_
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdarg.h>
 # include <stdio.h>//   REMOVE
@@ -37,23 +37,27 @@ typedef struct	s_flag
 	int			zero;
 	int			pres;
 	int			width;
+	int			exp;
+	int			fd;
 }				t_flag;
 
-void	struct_clear(struct s_flag *f);
-void	flags_fill(struct s_flag *f, int i);
-void	length_mod(struct s_flag *f, int i);
-int		valid_format(char c);
-int		ft_printf(const char *format, ...);
-void	uitoabase(struct s_flag *f, uintmax_t num, int i, unsigned int base);
-void	ft_csp_conv(struct s_flag *f, va_list ap, char chr);
-void	ft_int_conv(struct s_flag *f, va_list ap, char chr);
-void	ft_double_conv(struct s_flag *f, va_list ap, int i); //, char chr);
-void	ft_flag_type(struct s_flag *f, char chr);
-void	ft_flags_chars(struct s_flag *f, char chr);
-void	print_memory(const void *addr, size_t size);
-char	*ft_minus(struct s_flag *f);
-void	ft_zero(struct s_flag *f);
-char	*ft_hash(struct s_flag *f, char chr);
-void	ft_width(struct s_flag *f);
+void			struct_clear(t_flag *f);
+void			flags_fill(t_flag *f, int i);
+void			length_mod(t_flag *f, int i);
+int				valid_format(char c);
+int				ft_printf(const char *format, ...);
+void			uitoabase(t_flag *f, unsigned long num, int i, \
+					unsigned int base);
+void			cspb_conv(t_flag *f, va_list ap, char chr);
+void			int_conv(t_flag *f, va_list ap, char chr);
+void			float_conv(t_flag *f, va_list ap, int i, char chr);
+void			ft_flag_type(t_flag *f, char chr);
+void			ft_flags_chars(t_flag *f, char chr);
+void			print_memory(const void *addr, size_t size);
+char			*minus_flag(t_flag *f);
+void			zero_flag(t_flag *f);
+char			*hash_flag(t_flag *f, char chr);
+void			width_flag(t_flag *f);
+void			pres_flag(t_flag *f, char chr);
 
 #endif

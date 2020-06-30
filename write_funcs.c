@@ -6,13 +6,13 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 11:46:42 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/05/28 14:31:54 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/06/30 20:04:25 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_shift_memcpy(struct s_flag *f, int bytes, int negative, char chr)
+void	ft_shift_memcpy(t_flag *f, int bytes, int negative, char chr)
 {
 	char	*str;
 	int		i;
@@ -37,7 +37,7 @@ void	ft_shift_memcpy(struct s_flag *f, int bytes, int negative, char chr)
 		*f->num = (*f->num + 1) * -1;
 }
 
-void	ft_flag_type(struct s_flag *f, char chr)
+void	ft_flag_type(t_flag *f, char chr)
 {
 	int		int_negative;
 	short	short_negative;
@@ -58,7 +58,7 @@ void	ft_flag_type(struct s_flag *f, char chr)
 		ft_shift_memcpy(f, sizeof(int), int_negative < 0, chr);
 }
 
-void	uitoabase(struct s_flag *f, uintmax_t num, int i, unsigned int base)
+void	uitoabase(t_flag *f, unsigned long num, int i, unsigned int base)
 {
 	char	hex[17];
 	char	hex_u[17];

@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 14:57:46 by mkarkaus          #+#    #+#             */
-/*   Updated: 2019/11/25 14:10:54 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/06/29 14:54:36 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,16 @@ int				ft_strnequ(char const *s1, char const *s2, size_t n);
 int				ft_tolower(int c);
 int				ft_toupper(int c);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
-char			*ft_strjoin(char const *s1, char const *s2);
+char			*ft_strjoin(char const *s1, char const *s2, int free_int);
 char			*ft_strtrim(char const *s);
+char    		*ft_strrev(char *str, int free_str);
 char			**ft_strsplit(char const *s, char c);
 int				ft_atoi(const char *str);
 char			*ft_itoa(int n);
 void			ft_putendl(char const *s);
 void			ft_putnbr(int n);
 void			ft_putchar_fd(char c, int fd);
-void			ft_putstr_fd(char const *s, int fd);
+int				ft_putstr_fd(char const *s, int fd);
 void			ft_putendl_fd(char const *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 void			ft_bzero(void *s, size_t n);
@@ -93,6 +94,5 @@ int				ft_longlen(long n);
 char			*ft_itoa_long(long n);
 int				ft_intlen_long(long n);
 char			*ft_itoa_ptr(int *n);
-char    		*ft_strrev(char *str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 13:03:14 by mkarkaus          #+#    #+#             */
-/*   Updated: 2019/11/26 17:08:29 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/06/25 20:56:30 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,9 +56,8 @@ int			get_next_line(const int fd, char **line)
 	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
 	{
 		buf[ret] = '\0';
-		if (!(temp = ft_strjoin(tab[fd], buf)))
+		if (!(temp = ft_strjoin(tab[fd], buf, 1)))
 			return (-1);
-		free(tab[fd]);
 		tab[fd] = temp;
 		if (ft_strchr(tab[fd], '\n') != NULL)
 			break ;
