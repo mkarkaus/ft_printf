@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "ft_printf.h"
+#include "./includes/ft_printf.h"
 
 int     main()
 {
@@ -28,145 +28,293 @@ int     main()
 
 	// printf("\nOriginal printf:\n\n");
 
-	int     ret;
-	int     i;
-	int     j;
+	int     		ret;
+	int     		i;
+	int     		j;
 	unsigned int    u;
-	char    *str;
+	float			f;
+	double			d;
+	long double		ld;
+	char    		*str;
 
 	str = "abcdefg";
 	i = 123;
 	j = -1;
 	u = 123456789;
-	
+	f = 123.123321f;
+	d = 456.555555555555;
+	ld = 789.7777777777777777;
+
 	int k = 0;
-	// int l = -6789
-	// unsigned int o = 9;
-	// unsigned int x = 456789
 	char p[5];
-	// char str[6] = "abcdef";
 
+	printf("\n¤¤¤ PLUS FLAG when WIDTH greater than PRECISION ¤¤¤\n\n");
 
-	// ret = ft_printf("%f, ");
-	// printf("my %d\n", ret);
-	// ret = printf("%f", 5.123456789);
-	// printf("or %d\n", ret);
-
-	// printf("%ld\n%ld)", sizeof(long), sizeof(long long));
-
-	printf("\n¤¤¤ PRECISION WITH FLAGS ¤¤¤\n\n");
-
-	printf("\n¤¤¤ ZERO ¤¤¤\n");
-	
-	ret = ft_printf("%0.20x\n", u);
+	ret = ft_printf("%+10.9i\n", i);
 	printf("my %d\n", ret);
-	ret = printf("%0.20x\n", u);
-	printf("my %d\n\n", ret);
+	ret = printf("%+10.9i\n", i);
+	printf("or %d\n\n", ret);
 
-	ret = ft_printf("%0.20X\n", u);
+	ret = ft_printf("%+15.9d\n", j);
 	printf("my %d\n", ret);
-	ret = printf("%0.20X\n", u);
-	printf("my %d\n\n", ret);
+	ret = printf("%+15.9d\n", j);
+	printf("or %d\n\n", ret);
 
-	printf("\n¤¤¤ PLUS ¤¤¤\n");
-
-	ret = ft_printf("%+.6i\n", i);
+	ret = ft_printf("%+15.9d\n", k);
 	printf("my %d\n", ret);
-	ret = printf("%+.6i\n", i);
+	ret = printf("%+15.9d\n", k);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ FLAG when WIDTH less than PRECISION ¤¤¤\n\n");
+
+	ret = ft_printf("%+10.19i\n", i);
+	printf("my %d\n", ret);
+	ret = printf("%+10.19i\n", i);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%+9.15d\n", j);
+	printf("my %d\n", ret);
+	ret = printf("%+9.15d\n", j);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%+9.15d\n", k);
+	printf("my %d\n", ret);
+	ret = printf("%+9.15d\n", k);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ WITH FLAGS when WIDTH equal to PRECISION ¤¤¤\n\n");
+
+	ret = ft_printf("%+10.10i\n", i);
+	printf("my %d\n", ret);
+	ret = printf("%+10.10i\n", i);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%+10.10d\n", j);
+	printf("my %d\n", ret);
+	ret = printf("%+10.10d\n", j);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%+10.10d\n", k);
+	printf("my %d\n", ret);
+	ret = printf("%+10.10d\n", k);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ HASHTAG FLAG when WIDTH greater than PRECISION ¤¤¤\n\n");
+
+	ret = ft_printf("%#18.9o\n", u);
+	printf("my %d\n", ret);
+	ret = printf("%#18.9o\n", u);
 	printf("or %d\n\n", ret);
 	
-	ret = ft_printf("%+.6d\n", i);
+	ret = ft_printf("%#20.9x\n", u);
 	printf("my %d\n", ret);
-	ret = printf("%+.6d\n", i);
+	ret = printf("%#20.9x\n", u);
 	printf("or %d\n\n", ret);
 
-		ret = ft_printf("%+.9i\n", j);
+	ret = ft_printf("%#20.9X\n", u);
 	printf("my %d\n", ret);
-	ret = printf("%+.9i\n", j);
+	ret = printf("%#20.9X\n", u);
+	printf("or %d\n\n", ret);
+
+		printf("\n¤¤¤ FLAG when WIDTH less than PRECISION ¤¤¤\n\n");
+
+	ret = ft_printf("%#19.25o\n", u);
+	printf("my %d\n", ret);
+	ret = printf("%#19.25o\n", u);
 	printf("or %d\n\n", ret);
 	
-	ret = ft_printf("%+.9d\n", j);
+	ret = ft_printf("%#19.25x\n", u);
 	printf("my %d\n", ret);
-	ret = printf("%+.9d\n", j);
+	ret = printf("%#19.25x\n", u);
 	printf("or %d\n\n", ret);
 
-		ret = ft_printf("%+.5i\n", k);
+	ret = ft_printf("%#19.25X\n", u);
 	printf("my %d\n", ret);
-	ret = printf("%+.5i\n", k);
+	ret = printf("%#19.25X\n", u);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ WITH FLAGS when WIDTH equal to PRECISION ¤¤¤\n\n");
+
+	ret = ft_printf("%#19.19o\n", u);
+	printf("my %d\n", ret);
+	ret = printf("%#19.19o\n", u);
 	printf("or %d\n\n", ret);
 	
-	ret = ft_printf("%+.5d\n", k);
+	ret = ft_printf("%#19.19x\n", u);
 	printf("my %d\n", ret);
-	ret = printf("%+.5d\n", k);
+	ret = printf("%#19.19x\n", u);
 	printf("or %d\n\n", ret);
 
-	printf("\n¤¤¤ MINUS ¤¤¤\n");
+	printf("\n¤¤¤ SPACE FLAG when WIDTH greater than PRECISION ¤¤¤\n\n");
 
-	ret = ft_printf("%-.11s\n", str);
+	ret = ft_printf("% 10.9i\n", i);
 	printf("my %d\n", ret);
-	ret = printf("%-.11s\n", str);
+	ret = printf("% 10.9i\n", i);
 	printf("or %d\n\n", ret);
 
-	ret = ft_printf("%-.21i\n", i);
+	ret = ft_printf("% 15.9d\n", j);
 	printf("my %d\n", ret);
-	ret = printf("%-.21i\n", i);
+	ret = printf("% 15.9d\n", j);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("% 15.9d\n", k);
+	printf("my %d\n", ret);
+	ret = printf("% 15.9d\n", k);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ SPACE FLAG when WIDTH less than PRECISION ¤¤¤\n\n");
+
+	ret = ft_printf("% 10.19i\n", i);
+	printf("my %d\n", ret);
+	ret = printf("% 10.19i\n", i);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("% 9.15d\n", j);
+	printf("my %d\n", ret);
+	ret = printf("% 9.15d\n", j);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("% 9.15d\n", k);
+	printf("my %d\n", ret);
+	ret = printf("% 9.15d\n", k);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ SPACE FLAG when WIDTH equal to PRECISION ¤¤¤\n\n");
+
+	ret = ft_printf("% 10.10i\n", i);
+	printf("my %d\n", ret);
+	ret = printf("% 10.10i\n", i);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("% 10.10d\n", j);
+	printf("my %d\n", ret);
+	ret = printf("% 10.10d\n", j);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("% 10.10d\n", k);
+	printf("my %d\n", ret);
+	ret = printf("% 10.10d\n", k);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ MINUS FLAG when WIDTH greater than PRECISION ¤¤¤\n\n");
+
+	ret = ft_printf("%-10.4s\n", str);
+	printf("my %d\n", ret);
+	ret = printf("%-10.4s\n", str);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-10.9i\n", i);
+	printf("my %d\n", ret);
+	ret = printf("%-10.9i\n", i);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-15.9d\n", j);
+	printf("my %d\n", ret);
+	ret = printf("%-15.9d\n", j);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-15.9d\n", k);
+	printf("my %d\n", ret);
+	ret = printf("%-15.9d\n", k);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-18.9o\n", u);
+	printf("my %d\n", ret);
+	ret = printf("%-18.9o\n", u);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-18.9u\n", u);
+	printf("my %d\n", ret);
+	ret = printf("%-18.9u\n", u);
 	printf("or %d\n\n", ret);
 	
-	ret = ft_printf("%-.21d\n", i);
+	ret = ft_printf("%-20.9x\n", u);
 	printf("my %d\n", ret);
-	ret = printf("%-.21d\n", i);
+	ret = printf("%-20.9x\n", u);
 	printf("or %d\n\n", ret);
 
-	ret = ft_printf("%-.21d\n", j);
+	ret = ft_printf("%-20.9X\n", u);
 	printf("my %d\n", ret);
-	ret = printf("%-.21d\n", j);
+	ret = printf("%-20.9X\n", u);
 	printf("or %d\n\n", ret);
 
-	ret = ft_printf("%-.21d\n", k);
+		printf("\n¤¤¤ FLAG when WIDTH less than PRECISION ¤¤¤\n\n");
+
+	ret = ft_printf("%-4.6s\n", str);
 	printf("my %d\n", ret);
-	ret = printf("%-.21d\n", k);
+	ret = printf("%-4.6s\n", str);
 	printf("or %d\n\n", ret);
 
-	ret = ft_printf("%-.21o\n", i);
+	ret = ft_printf("%-10.19i\n", i);
 	printf("my %d\n", ret);
-	ret = printf("%-.21o\n", i);
+	ret = printf("%-10.19i\n", i);
 	printf("or %d\n\n", ret);
 
-	ret = ft_printf("%-.21u\n", u);
+	ret = ft_printf("%-9.15d\n", j);
 	printf("my %d\n", ret);
-	ret = printf("%-.21u\n", u);
+	ret = printf("%-9.15d\n", j);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-9.15d\n", k);
+	printf("my %d\n", ret);
+	ret = printf("%-9.15d\n", k);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-19.25o\n", u);
+	printf("my %d\n", ret);
+	ret = printf("%-19.25o\n", u);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-19.25u\n", u);
+	printf("my %d\n", ret);
+	ret = printf("%-19.25u\n", u);
 	printf("or %d\n\n", ret);
 	
-	ret = ft_printf("%-.21x\n", u);
+	ret = ft_printf("%-19.25x\n", u);
 	printf("my %d\n", ret);
-	ret = printf("%-.21x\n", u);
+	ret = printf("%-19.25x\n", u);
 	printf("or %d\n\n", ret);
 
-	ret = ft_printf("%-.21X\n", u);
+	ret = ft_printf("%-19.25X\n", u);
 	printf("my %d\n", ret);
-	ret = printf("%-.21X\n", u);
+	ret = printf("%-19.25X\n", u);
 	printf("or %d\n\n", ret);
 
-	printf("\n¤¤¤ SPACE ¤¤¤\n");
+	printf("\n¤¤¤ WITH FLAGS when WIDTH equal to PRECISION ¤¤¤\n\n");
 
-	ret = ft_printf("% .11i\n", i);
+	ret = ft_printf("%-10.10s\n", str);
 	printf("my %d\n", ret);
-	ret = printf("% .11i\n", i);
+	ret = printf("%-10.10s\n", str);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-10.10i\n", i);
+	printf("my %d\n", ret);
+	ret = printf("%-10.10i\n", i);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-10.10d\n", j);
+	printf("my %d\n", ret);
+	ret = printf("%-10.10d\n", j);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-10.10d\n", k);
+	printf("my %d\n", ret);
+	ret = printf("%-10.10d\n", k);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-19.19o\n", u);
+	printf("my %d\n", ret);
+	ret = printf("%-19.19o\n", u);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-19.19u\n", u);
+	printf("my %d\n", ret);
+	ret = printf("%-19.19u\n", u);
 	printf("or %d\n\n", ret);
 	
-	ret = ft_printf("% .11d\n", i);
+	ret = ft_printf("%-19.19x\n", u);
 	printf("my %d\n", ret);
-	ret = printf("% .11d\n", i);
-	printf("or %d\n\n", ret);
-
-	ret = ft_printf("% .11d\n", j);
-	printf("my %d\n", ret);
-	ret = printf("% .11d\n", j);
-	printf("or %d\n\n", ret);
-
-	ret = ft_printf("% .11d\n", k);
-	printf("my %d\n", ret);
-	ret = printf("% .11d\n", k);
+	ret = printf("%-19.19x\n", u);
 	printf("or %d\n\n", ret);
 
 	printf("\n¤¤¤ HASHTAG ¤¤¤\n");
@@ -181,10 +329,381 @@ int     main()
 	ret = printf("%#.19x\n", u);
 	printf("or %d\n\n", ret);
 
-	ret = ft_printf("%#.19X\n", u);
+	printf("\n¤¤¤ 'f'-flag float ¤¤¤\n");
+
+	ret = ft_printf("%12.5f\n", f);
 	printf("my %d\n", ret);
-	ret = printf("%#.19X\n", u);
+	ret = printf("%12.5f\n", f);
 	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%5.10f\n", f);
+	printf("my %d\n", ret);
+	ret = printf("%5.10f\n", f);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'f'-flag double ¤¤¤\n");
+
+	ret = ft_printf("%.5lf\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%.5lf\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%12.10lf\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%12.10lf\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%.19lf\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%.19lf\n", d);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'f'-flag long double ¤¤¤\n");
+
+	ret = ft_printf("%.5Lf\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%.5Lf\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%12.10Lf\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%12.10Lf\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%.19Lf\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%.19Lf\n", ld);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'g'-flag float ¤¤¤\n");
+
+	ret = ft_printf("%12.5g\n", f);
+	printf("my %d\n", ret);
+	ret = printf("%12.5g\n", f);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%5.10g\n", f);
+	printf("my %d\n", ret);
+	ret = printf("%5.10g\n", f);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%.3Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%.3Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%12.2Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%12.2Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%.1Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%.1Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'g'-flag double ¤¤¤\n");
+
+	ret = ft_printf("%.5lg\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%.5lg\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%12.10lg\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%12.10lg\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%.19lg\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%.19lg\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%.3Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%.3Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%12.2Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%12.2Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%.1Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%.1Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'g'-flag long double ¤¤¤\n");
+
+	ret = ft_printf("%.5Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%.5Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%12.10Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%12.10Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%.19Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%.19Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%.3Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%.3Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%12.2Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%12.2Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%.1Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%.1Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'e'-flag float ¤¤¤\n");
+
+	ret = ft_printf("%12.5e\n", f);
+	printf("my %d\n", ret);
+	ret = printf("%12.5e\n", f);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%5.10e\n", f);
+	printf("my %d\n", ret);
+	ret = printf("%5.10e\n", f);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'e'-flag double ¤¤¤\n");
+
+	ret = ft_printf("%.5le\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%.5le\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%12.10le\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%12.10le\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%.19le\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%.19le\n", d);
+	printf("or %d\n", ret);
+
+	printf("\n¤¤¤ 'e'-flag long double ¤¤¤\n\n");
+
+	ret = ft_printf("%.5Le\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%.5Le\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%12.10Le\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%12.10Le\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%.19Le\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%.19Le\n", ld);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'f'-flag float (optional flags) ¤¤¤\n");
+
+	ret = ft_printf("%#12.5f\n", f);
+	printf("my %d\n", ret);
+	ret = printf("%#12.5f\n", f);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%+05.10f\n", f);
+	printf("my %d\n", ret);
+	ret = printf("%+05.10f\n", f);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'f'-flag double (optional flags) ¤¤¤\n");
+
+	ret = ft_printf("%-#.5lf\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%-#.5lf\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%+12.10lf\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%+12.10lf\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%- .19lf\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%- .19lf\n", d);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'f'-flag long double (optional flags) ¤¤¤\n");
+
+	ret = ft_printf("%#.5Lf\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%#.5Lf\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-12.10Lf\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%-12.10Lf\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%0+.19Lf\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%0+.19Lf\n", ld);
+	printf("or %d\n", ret);
+
+	printf("\n¤¤¤ 'g'-flag float (optional flags) ¤¤¤\n\n");
+
+	ret = ft_printf("%#12.5g\n", f);
+	printf("my %d\n", ret);
+	ret = printf("%#12.5g\n", f);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-5.10g\n", f);
+	printf("my %d\n", ret);
+	ret = printf("%-5.10g\n", f);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%+.3Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%+.3Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("% 12.2Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("% 12.2Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%0.1Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%0.1Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'g'-flag double (optional flags) ¤¤¤\n");
+
+	ret = ft_printf("%#.5lg\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%#.5lg\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-12.10lg\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%-12.10lg\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%+.19lg\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%+.19lg\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%0.3Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%0.3Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%- 12.2Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%- 12.2Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%#+.1Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%#+.1Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'g'-flag long double (optional flags) ¤¤¤\n");
+
+	ret = ft_printf("%#.5lg\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%#.5lg\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-12.10lg\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%-12.10lg\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%+.19lg\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%+.19lg\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%0.3Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%0.3Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%- 12.2Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%- 12.2Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%#+.1Lg\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%#+.1Lg\n", ld);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'e'-flag float (optional flags) ¤¤¤\n");
+
+	ret = ft_printf("%#12.5e\n", f);
+	printf("my %d\n", ret);
+	ret = printf("%#12.5e\n", f);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%+05.10e\n", f);
+	printf("my %d\n", ret);
+	ret = printf("%+05.10e\n", f);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'e'-flag double (optional flags) ¤¤¤\n");
+
+	ret = ft_printf("%-#.5le\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%-#.5le\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%+12.10le\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%+12.10le\n", d);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%- .19le\n", d);
+	printf("my %d\n", ret);
+	ret = printf("%- .19le\n", d);
+	printf("or %d\n\n", ret);
+
+	printf("\n¤¤¤ 'e'-flag long double (optional flags) ¤¤¤\n");
+
+	ret = ft_printf("%#.5Le\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%#.5Le\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%-12.10Le\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%-12.10Le\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%0+.19Le\n", ld);
+	printf("my %d\n", ret);
+	ret = printf("%0+.19Le\n", ld);
+	printf("or %d\n\n", ret);
+
+	ret = ft_printf("%0#19X\n", u);
+    printf("my %d\n", ret);
+    ret = printf("%0#19X\n", u);
+    printf("or %d\n\n", ret);
+	
+	ft_printf("\n¤¤¤ {b_cyan}PRETTY {b_magenta}COLOR {b_yellow}TESTS{r} ¤¤¤\n");
+
+	ret = ft_printf("%0+.19Le\n", ld);
+	printf("my %d\n", ret);
 
 	return (0);
 }

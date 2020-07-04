@@ -6,7 +6,7 @@
 #    By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/30 11:50:18 by mkarkaus          #+#    #+#              #
-#    Updated: 2020/04/30 14:49:43 by mkarkaus         ###   ########.fr        #
+#    Updated: 2020/07/03 12:09:23 by mkarkaus         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ ft_memdel.c ft_putendl_fd.c ft_strchr.c ft_strequ.c ft_strmap.c ft_strnew.c \
 ft_strlcat.c ft_strnstr.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
 ft_lstiter.c ft_lstmap.c ft_intlen.c ft_isupper.c ft_islower.c ft_swap.c \
 ft_isspace.c ft_longlen.c ft_itoa_long.c ft_intlen_long.c ft_itoa_ptr.c \
-ft_strrev.c get_next_line.c
+ft_strrev.c ft_strcut.c get_next_line.c
 
 FLAGS = -Wall -Werror -Wextra
 

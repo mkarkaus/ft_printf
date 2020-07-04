@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 14:57:46 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/06/29 14:54:36 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/03 12:46:34 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,9 @@ int				ft_toupper(int c);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2, int free_int);
 char			*ft_strtrim(char const *s);
-char    		*ft_strrev(char *str, int free_str);
+char			*ft_strrev(char *str, int free_str);
 char			**ft_strsplit(char const *s, char c);
+char			*ft_strcut(char *str, int vol, int dir, int free_str);
 int				ft_atoi(const char *str);
 char			*ft_itoa(int n);
 void			ft_putendl(char const *s);
