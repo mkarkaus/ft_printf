@@ -6,13 +6,13 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 21:51:20 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/03 14:15:40 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/06 12:17:16 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void	uitoabase(t_flag *f, unsigned long num, int i, unsigned int base)
+void	uitoabase(t_flag *f, unsigned long long num, int i, unsigned int base)
 {
 	char	hex[17];
 	char	hex_u[17];
@@ -90,7 +90,7 @@ void	int_conv(t_flag *f, va_list ap, char chr)
 	{
 		apply_length_mod(f, chr);
 		if (f->l == 1 || f->ll == 1)
-			f->res = ft_itoa_long(*f->num);
+			f->res = ft_itoa_llong(*f->num);
 		else
 			f->res = ft_itoa(*f->num);
 		free(f->num);

@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 22:24:06 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/03 14:32:44 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/06 11:36:37 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,11 @@ void		g_adjust_pres(t_flag *f, long double nbr, int k)
 {
 	int		m;
 
-	if (f->pres == ft_intlen_long(nbr) && (long)nbr != 0)
+	if (f->pres == ft_intlen_llong(nbr) && (long)nbr != 0)
 		f->pres = 0;
-	else if (ft_intlen_long(nbr) < f->pres || (long)nbr == 0)
+	else if (ft_intlen_llong(nbr) < f->pres || (long)nbr == 0)
 	{
-		if ((long)nbr != 0 && (f->pres -= ft_intlen_long(nbr)))
+		if ((long)nbr != 0 && (f->pres -= ft_intlen_llong(nbr)))
 			nbr -= (long)nbr;
 		else
 			while ((long)nbr == 0 && ++k)

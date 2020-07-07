@@ -6,14 +6,14 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 17:38:36 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/03 13:22:20 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/07 11:11:27 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdio.h>
+# include <stdio.h>//REMOVE
 # include <stdarg.h>
 # include <inttypes.h>
 # include "../libft/libft.h"
@@ -42,13 +42,13 @@ typedef struct	s_flag
 }				t_flag;
 
 void			struct_clear(t_flag *f);
-void			receive_flags(t_flag *f, int i);
+void			receive_flags(t_flag *f, int i, va_list ap);
 void			length_mod(t_flag *f, int i);
 void			identify_conv(t_flag *f, va_list ap);
 int				valid_format(char c);
 int				receive_format(const char *format, t_flag *f, va_list ap);
 int				ft_printf(const char *format, ...);
-void			uitoabase(t_flag *f, unsigned long num, int i, \
+void			uitoabase(t_flag *f, unsigned long long num, int i, \
 					unsigned int base);
 void			pointer_conv(t_flag *f, va_list ap, char chr);
 void			int_conv(t_flag *f, va_list ap, char chr);

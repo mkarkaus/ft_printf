@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 21:07:58 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/02 22:56:57 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/07 13:17:32 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ int		receive_format(const char *format, t_flag *f, va_list ap)
 	{
 		f->fmt[i] = format[i];
 		f->fmt[i + 1] = '\0';
-		receive_flags(f, 0);
+		receive_flags(f, 0, ap);
 		identify_conv(f, ap);
 	}
-	else
+	else if (format[i] == '%')
 	{
 		f->printed += write(f->fd, "%", 1);
 		return (-1);

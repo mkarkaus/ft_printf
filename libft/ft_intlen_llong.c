@@ -1,41 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_long.c                                     :+:      :+:    :+:   */
+/*   ft_intlen_llong.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/03 12:43:46 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/03 12:43:48 by mkarkaus         ###   ########.fr       */
+/*   Created: 2020/07/06 11:32:11 by mkarkaus          #+#    #+#             */
+/*   Updated: 2020/07/06 12:55:38 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
-char		*ft_itoa_long(long n)
+int		ft_intlen_llong(long long n)
 {
-	char	*fresh;
-	int		i;
-	int		k;
+	int	len;
 
-	i = ft_intlen_long(n);
-	k = i;
-	if (!(fresh = (char *)malloc((i + 1) * sizeof(char))))
-		return (0);
+	len = 0;
 	if (n == 0)
-		fresh[0] = '0';
-	if (n < 0)
+		return (1);
+	if (n == -9223372036854775807 - 1)
+		return (20);
+	else if (n < 0)
 	{
-		fresh[0] = '-';
-		n *= -1;
+		n = -n;
+		len++;
 	}
 	while (n > 0)
 	{
-		i--;
-		fresh[i] = n % 10 + '0';
-		n /= 10;
+		n = n / 10;
+		len++;
 	}
-	fresh[k] = '\0';
-	return (fresh);
+	return (len);
 }

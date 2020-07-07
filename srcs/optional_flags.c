@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 15:25:19 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/03 13:41:33 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/07 15:12:30 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,13 @@ void	minus_flag(t_flag *f)
 
 void	apply_width_pres_flags(t_flag *f, char chr)
 {
-	if (f->pres >= 0 && chr != 'f' && chr != 'g' && chr != 'e' && chr != 'p')
+	if (f->pres != -1 && (chr == 'd' || chr == 'i' || chr == 'o' || chr == 'u'\
+		 || chr == 'x' || chr == 'X'))
+		f->zero = 0;
+	if ((f->pres >= 6 || f->pres == -1) && f->res == NULL)
+		f->res = ft_strdup("(null)");
+	if (f->pres >= 0 && chr != 'f' && chr != 'g' && chr != 'e' \
+			&& f->res != NULL)
 		apply_prec(f, chr);
 	if (f->space && !f->plus && f->res[0] != '-')
 		f->res = ft_strjoin(" ", f->res, 2);
@@ -125,7 +131,8 @@ void	apply_width_pres_flags(t_flag *f, char chr)
 			chr == 'e' || chr == 'g'))
 		f->res = hash_flag(f, chr);
 	if (f->width && f->width > (int)ft_strlen(f->res))
-		apply_width(f, (f->zero == 1 && (chr == 'x' || chr == 'X')));
+		apply_width(f, ((f->hash == 1 && f->zero == 1) && \
+			(chr == 'x' || chr == 'X')));
 	if (f->zero && !f->minus && (chr != 's' && chr != 'c' && chr != 'p' && \
 		chr != 'b'))
 		zero_flag(f);

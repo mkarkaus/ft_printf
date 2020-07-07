@@ -700,10 +700,45 @@ int     main()
     ret = printf("%0#19X\n", u);
     printf("or %d\n\n", ret);
 	
-	ft_printf("\n¤¤¤ {b_cyan}PRETTY {b_magenta}COLOR {b_yellow}TESTS{r} ¤¤¤\n");
+	ft_printf("\n¤¤¤ {b_cyan}PRETTY {b_magenta}COLOR {b_yellow}TESTS{r} ¤¤¤\n\n");
 
-	ret = ft_printf("%0+.19Le\n", ld);
+	ret = ft_printf("{green}%0+.19Le{r}\n", ld);
 	printf("my %d\n", ret);
+	ret = ft_printf("{cyan}I'll {red}just {blue}write {b_yellow}a \
+{r}long {magenta}sentence\n{bck_red}so{r} {bck_blue}it{r} {bck_green}would{r}\
+ {bck_yellow}be{r} {bck_black}easier{r} {bck_cyan}to{r} {u_blue}see{r} {b_green}if\
+ \n{u_magenta}this{r} {u_red}works.{r}\n");
+	printf("my %d\n\n", ret);
+
+	ret = ft_printf("%%d 0000042 == |%d|", 0000042);
+    printf("my %d\n", ret);
+    ret = printf("%%d 0000042 == |%d|", 0000042);
+    printf("or %d\n\n", ret);
+	
+	ret = ft_printf("%%%%%%%%%%%%\n");
+    printf("my %d\n", ret);
+    ret = printf("%%%%%%%%%%%%\n");
+    printf("or %d\n\n", ret);
+	
+	ret = ft_printf("%.03s", NULL);
+    printf("my %d\n", ret);
+    ret = printf("%.03s", NULL);
+    printf("or %d\n\n", ret);
+
+	ret = ft_printf("%.09s", NULL);
+    printf("my %d\n", ret);
+    ret = printf("%.09s", NULL);
+    printf("or %d\n\n", ret);
+
+	ret = ft_printf("%2.9p", 1234);
+    printf("my %d\n", ret);
+    ret = printf("%2.9p", 1234);
+    printf("or %d\n\n", ret);
+
+	// ret = ft_printf("%llu\n", 18446744073709551614);
+    // printf("my %d\n", ret);
+    // ret = printf("%llu\n", 18446744073709551614);
+    // printf("or %d\n\n", ret);
 
 	return (0);
 }

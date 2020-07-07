@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 14:57:46 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/03 12:46:34 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/06 11:34:30 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ int				ft_isupper(int c);
 int				ft_islower(int c);
 int				ft_intlen(int n);
 int				ft_longlen(long n);
-char			*ft_itoa_long(long n);
-int				ft_intlen_long(long n);
+char			*ft_itoa_llong(long long n);
+int				ft_intlen_llong(long long n);
 char			*ft_itoa_ptr(int *n);
 
 #endif
