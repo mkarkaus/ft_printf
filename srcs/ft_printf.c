@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 11:47:20 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/07 14:27:37 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/08 12:54:39 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,11 @@ void	identify_conv(t_flag *f, va_list ap)
 		free(f->num);
 	}
 	apply_width_pres_flags(f, f->fmt[i]);
+	(!f->res && f->fmt[i] == 'c') ? f->printed += write(f->fd, "\0", 1) : 0;
 	if (f->res != NULL)
 	{
 		f->printed += ft_putstr_fd(f->res, f->fd);
-		ft_strclr(f->res);
+		ft_bzero(f->res, ft_strlen(f->res));
 		free(f->res);
 	}
 }
@@ -74,7 +75,7 @@ int		ft_printf(const char *format, ...)
 			flag.printed += write(f->fd, "%", 1);
 		else if (*format == '%' && *(format + 1) != '%')
 			format += (receive_format(format + 1, f, ap) == 0) ? \
-				ft_strlen(flag.fmt) + 1 : 1;
+				ft_strlen(flag.fmt) + 1 : 2;
 		else if (*format == '{')
 			(colcheck(f, format)) ? ((format += colcheck(f, format)) != NULL)\
 				: (flag.printed += write(f->fd, &(*format++), 1));

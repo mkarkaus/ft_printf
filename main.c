@@ -730,9 +730,9 @@ int     main()
     ret = printf("%.09s", NULL);
     printf("or %d\n\n", ret);
 
-	ret = ft_printf("%2.9p", 1234);
+	ret = ft_printf("%%-*.3s LYDI == |%-*.3s|", 5, "LYDI");
     printf("my %d\n", ret);
-    ret = printf("%2.9p", 1234);
+    ret = printf("%%-*.3s LYDI == |%-*.3s|", 5, "LYDI");
     printf("or %d\n\n", ret);
 
 	// ret = ft_printf("%llu\n", 18446744073709551614);

@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 15:25:19 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/07 15:12:30 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/08 14:20:48 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	apply_width_pres_flags(t_flag *f, char chr)
 	if (f->pres != -1 && (chr == 'd' || chr == 'i' || chr == 'o' || chr == 'u'\
 		 || chr == 'x' || chr == 'X'))
 		f->zero = 0;
-	if ((f->pres >= 6 || f->pres == -1) && f->res == NULL)
+	if ((f->pres >= 6 || f->pres == -1) && f->res == NULL && chr != 'c')
 		f->res = ft_strdup("(null)");
 	if (f->pres >= 0 && chr != 'f' && chr != 'g' && chr != 'e' \
 			&& f->res != NULL)

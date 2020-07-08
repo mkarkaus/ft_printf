@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 17:38:36 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/07 11:11:27 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/08 12:50:08 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ typedef struct	s_flag
 }				t_flag;
 
 void			struct_clear(t_flag *f);
-void			receive_flags(t_flag *f, int i, va_list ap);
-void			length_mod(t_flag *f, int i);
+int				receive_flags(t_flag *f, int i, va_list ap);
+int				length_mod(t_flag *f, int i);
 void			identify_conv(t_flag *f, va_list ap);
 int				valid_format(char c);
 int				receive_format(const char *format, t_flag *f, va_list ap);
