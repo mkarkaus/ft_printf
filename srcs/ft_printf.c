@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 11:47:20 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/08 12:54:39 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/20 20:56:05 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int		ft_printf(const char *format, ...)
 			flag.printed += write(f->fd, "%", 1);
 		else if (*format == '%' && *(format + 1) != '%')
 			format += (receive_format(format + 1, f, ap) == 0) ? \
-				ft_strlen(flag.fmt) + 1 : 2;
+				ft_strlen(flag.fmt) + 1 : ft_strlen(flag.fmt) + 1;
 		else if (*format == '{')
 			(colcheck(f, format)) ? ((format += colcheck(f, format)) != NULL)\
 				: (flag.printed += write(f->fd, &(*format++), 1));

@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 21:51:20 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/06 12:17:16 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/17 14:19:39 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	int_conv(t_flag *f, va_list ap, char chr)
 	}
 	else
 	{
-		f->res = ft_memalloc(ft_intlen((unsigned long)f->addr) + 1);
+		f->res = ft_memalloc(ft_intlen_llong((unsigned long)f->addr) + 1);
 		if (chr == 'o')
 			uitoabase(f, (unsigned long)f->addr, 0, 8);
 		if (chr == 'u')

@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/21 15:25:19 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/08 14:20:48 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/21 17:51:25 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,24 @@ char	*hash_flag(t_flag *f, char chr)
 	str = ft_memalloc((ft_strlen(f->res) + 3));
 	if (chr == 'o')
 	{
+		str[0] = '0';
 		if (f->res[0] != '0')
-		{
-			str[0] = '0';
 			ft_strcpy(str + 1, f->res);
-		}
 		else
 			ft_strcpy(str, f->res);
 	}
-	else if ((chr == 'x' || chr == 'X') && ft_strcmp(f->res, "0"))
+	else if ((chr == 'x' || chr == 'X') && !(ft_atoi(f->res) == 0 && \
+			ft_onlydigits(f->res)))
 	{
-		if (chr == 'x')
-			f->res = ft_strjoin("x", f->res, 2);
-		if (chr == 'X')
-			f->res = ft_strjoin("X", f->res, 2);
+		(chr == 'x') ? f->res = ft_strjoin("x", f->res, 2) : 0;
+		(chr == 'X') ? f->res = ft_strjoin("X", f->res, 2) : 0;
 		f->res = ft_strjoin("0", f->res, 2);
 		ft_strcpy(str, f->res);
 	}
-	if (chr == 'f' || chr == 'e' || chr == 'g')
+	else if (chr == 'f' || chr == 'e' || chr == 'g')
 		double_hash(f, str);
+	else
+		ft_strncpy(str, f->res, ft_strlen(f->res));
 	free(f->res);
 	return (str);
 }
@@ -115,15 +114,16 @@ void	minus_flag(t_flag *f)
 void	apply_width_pres_flags(t_flag *f, char chr)
 {
 	if (f->pres != -1 && (chr == 'd' || chr == 'i' || chr == 'o' || chr == 'u'\
-		 || chr == 'x' || chr == 'X'))
+		|| chr == 'x' || chr == 'X'))
 		f->zero = 0;
 	if ((f->pres >= 6 || f->pres == -1) && f->res == NULL && chr != 'c')
 		f->res = ft_strdup("(null)");
 	if (f->pres >= 0 && chr != 'f' && chr != 'g' && chr != 'e' \
 			&& f->res != NULL)
 		apply_prec(f, chr);
-	if (f->space && !f->plus && f->res[0] != '-')
-		f->res = ft_strjoin(" ", f->res, 2);
+	if (chr != 's' && chr != 'c' && (f->plus || f->res[0] == '-'))
+		f->space = 0;
+	(f->space) ? f->res = ft_strjoin(" ", f->res, 2) : 0;
 	if (f->plus && (chr == 'd' || chr == 'i' || chr == 'f' || chr == 'e' || \
 			chr == 'g') && *f->res != '-')
 		f->res = ft_strjoin("+", f->res, 2);

@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 14:57:46 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/06 11:34:30 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:21:24 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,6 @@ int				ft_longlen(long n);
 char			*ft_itoa_llong(long long n);
 int				ft_intlen_llong(long long n);
 char			*ft_itoa_ptr(int *n);
+int				ft_onlydigits(char *str);
 
 #endif

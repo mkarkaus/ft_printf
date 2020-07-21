@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 22:03:28 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/08 11:04:42 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/09 12:49:57 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,27 +68,3 @@ void	apply_prec(t_flag *f, char chr)
 	}
 	(prefix[0]) ? f->res = ft_strjoin(prefix, f->res, 2) : 0;
 }
-// void	apply_prec(t_flag *f, char chr)
-// {
-// 	int		i;
-// 	int		minus;
-
-// 	if (f->res[0] == '0' && ft_strlen(f->res) == 1)
-// 		ft_bzero(f->res, 1);
-// 	minus = (f->res[0] == '-');
-// 	if (minus)
-// 		f->res[0] = '0';
-// 	i = f->pres - ft_strlen(f->res) + minus;
-// 	if (chr == 's' && (int)ft_strlen(f->res) >= f->pres)
-// 		ft_strclr(f->res + f->pres);
-// 	else if (chr != 's')
-// 	{
-// 		while (i > 0)
-// 		{
-// 			f->res = ft_strjoin("0", f->res, 2);
-// 			i--;
-// 		}
-// 		if (minus)
-// 			f->res[0] = '-';
-// 	}
-// }

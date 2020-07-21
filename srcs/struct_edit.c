@@ -6,7 +6,7 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/02 21:39:37 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/08 14:36:09 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/07/10 16:08:02 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,17 +58,18 @@ void	receive_prec_width(t_flag *f, int *i, va_list ap)
 		val = ft_atoi(f->fmt + *i + 1);
 	else
 		val = ft_atoi(f->fmt + *i);
-	if (val < 0)
+	if (f->fmt[*i] == '*' || ft_isdigit(f->fmt[*i]))
 	{
-		f->minus = 1;
-		val *= -1;
-	}
-	if (f->fmt[*i] == '.')
-		f->pres = val;
-	else if (ft_isdigit(f->fmt[*i]) || f->fmt[*i] == '*')
+		if (val < 0)
+		{
+			val *= -1;
+			f->minus = 1;
+		}
 		f->width = val;
-	if (f->fmt[*i + 1] == '*')
-		(*i)++;
+	}
+	else
+		f->pres = (val < 0) ? -1 : val;
+	(f->fmt[*i + 1] == '*') ? (*i)++ : 0;
 	while (ft_isdigit(f->fmt[*i + 1]) && f->fmt[*i] != '*')
 		(*i)++;
 }
