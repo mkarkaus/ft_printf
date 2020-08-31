@@ -6,14 +6,13 @@
 /*   By: mkarkaus <mkarkaus@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 17:38:36 by mkarkaus          #+#    #+#             */
-/*   Updated: 2020/07/08 12:50:08 by mkarkaus         ###   ########.fr       */
+/*   Updated: 2020/08/31 12:44:35 by mkarkaus         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdio.h>//REMOVE
 # include <stdarg.h>
 # include <inttypes.h>
 # include "../libft/libft.h"
