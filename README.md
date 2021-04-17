@@ -102,6 +102,15 @@ For ease of use (and for fun) I implemented a couple extra functionalities:
 ### Printing to file descriptor
 - `{fd}` -- this can be added right at the start of the format string to indicate that the first argument of the argument list will be taken as a file descriptor to which the function will then print the result.
 
+### Printing as binary
+- `%b` -- print corresponding string argument as binary.
+```
+ft_printf("%b\n", "Hello world!\n");
+```
+
+#### Output
+![](assets/binary_print.PNG)
+
 ### Printing with colors
 - `{red}` -- Result will be printed in red.
 - `{green}` -- Result will be printed in green.
@@ -119,7 +128,7 @@ For ease of use (and for fun) I implemented a couple extra functionalities:
 
 Color has to be reset with the `{r}` tag or rest of the whole output will be in that color. It's possible to use multiple colors in one format string like so:
 ```
-ft_printf("{green}This {b_red}sentence {u_blue}is{r} a {bck_magenta}happy{r} {i_cyan}rainbow!\n");
+ft_printf("{green}This {b_red}sentence {f_blue}is{r} a {bck_magenta}happy{r} {i_cyan}rainbow!{r}\n");
 ```
 #### Output
-![](ft_printf_colors.PNG)
+![](assets/ft_printf_colors.PNG)
