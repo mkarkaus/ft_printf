@@ -1,5 +1,5 @@
 # ft_printf
-First project in algorithm branch of 42 school's curriculum. Project was to re-implement standard C library's `printf` function. Use of `printf` is not permitted in almost any of the 42 projects that are done using C so `ft_printf` will help in future projects. Even though their use is very similar all of the functionalities of the original `printf` were not implemented. Some bonus functionalities was added for ease of use (or just for fun).
+First project in algorithm branch of 42 school's curriculum. Object of the project was to re-implement standard C library's `printf` function. Use of `printf` is not permitted in almost any of the 42 projects that are done using C so `ft_printf` will help in future projects. Even though their use is very similar all of the functionalities of the original `printf` were not implemented. Some bonus functionalities were added to expand usage (or just for fun).
 
 ### Declaration
 ```
