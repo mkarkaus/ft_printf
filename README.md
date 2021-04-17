@@ -109,7 +109,10 @@ ft_printf("%b\n", "Hello world!\n");
 ```
 
 #### Output
-![](assets/binary_print.PNG)
+```
+01000000 01100100 01101000 01101000 01101110 00000000 01110110 01101110 
+01110000 01101000 01100000 00100000 00001000
+```
 
 ### Printing with colors
 - `{red}` -- Result will be printed in red.
